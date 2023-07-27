@@ -9,7 +9,7 @@ do
         elif [ $myvar -eq 9 ];then
                 echo -e "$myvar\nbad luck from Japan"
 	elif [ $myvar -eq 17 ];then
-		echo -e "$myvar\nbad luck from italy"
+		echo -e "$myvar\nbad luck from Italy"
         else
                 echo "$myvar"
         fi
