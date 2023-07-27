@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#a while loop to display best school 10 times
+
+myvar=1
+while [ $myvar -le 20 ]
+do
+        if [ $myvar -eq 4 ];then
+                echo -e "$myvar\nbad luck from China"
+        elif [ $myvar -eq 9 ];then
+                echo -e "$myvar\nbad luck from Japan"
+	elif [ $myvar -eq 17 ];then
+		echo -e "$myvar\nbad luck from italy"
+        else
+                echo "$myvar"
+        fi
+        myvar=$((myvar + 1))
+done
