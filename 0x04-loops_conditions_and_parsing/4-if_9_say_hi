@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#a while loop to display best school 10 times
+
+myvar=1
+while [ $myvar -le 10 ]
+do
+	if [ $((myvar % 9)) -ne 0 ];then
+		echo "Best School"
+	else
+		echo -e "Best School\nHi"
+	fi
+        myvar=$((myvar + 1))
+done
