@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#until loop to print best school 10 times
+
+myvar=1
+until [ $myvar -gt 10 ]
+do
+	echo "Best School"
+	myvar=$((myvar + 1))
+done
