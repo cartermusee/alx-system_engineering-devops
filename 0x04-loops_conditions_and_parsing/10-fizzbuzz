@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#fizzbuzz
+myvar=1
+while [ $myvar -le 100 ]
+do
+	if [ $((myvar % 15)) -eq 0 ]; then
+		echo "FizzBuzz"
+	elif [ $((myvar % 5)) -eq 0 ]; then
+		echo "Buzz"
+	elif [ $((myvar % 3)) -eq 0 ]; then
+		echo "Fizz"
+	else
+		echo "$myvar"
+	fi
+	myvar=$((myvar + 1))
+done
+
