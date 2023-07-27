@@ -4,7 +4,6 @@
 myvar=1
 while [ $myvar -le 20 ]
 do
-	echo $myvar
 	case $myvar in 4)
                 echo -e "$myvar\nbad luck from China"
 		;;
@@ -14,6 +13,8 @@ do
 	17)
 		echo -e "$myvar\nbad luck from Italy"
 		;;
-        esac
+	*)
+		echo $myvar
+	esac
         myvar=$((myvar + 1))
 done
