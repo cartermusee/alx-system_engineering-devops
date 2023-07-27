@@ -5,9 +5,9 @@ myvar=1
 while [ $myvar -le 10 ]
 do
         if [ $((myvar % 8)) -eq 0 ];then
-                echo "Good luck"
+                echo "good luck"
 	elif [ $((myvar % 4)) -eq 0 ];then
-		echo "Bad luck"
+		echo "bad luck"
         else
                 echo "Best School"
         fi
