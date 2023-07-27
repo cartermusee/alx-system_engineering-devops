@@ -4,14 +4,16 @@
 myvar=1
 while [ $myvar -le 20 ]
 do
-        if [ $myvar -eq 4 ];then
+	echo $myvar
+	case $myvar in 4)
                 echo -e "$myvar\nbad luck from China"
-        elif [ $myvar -eq 9 ];then
+		;;
+	9)
                 echo -e "$myvar\nbad luck from Japan"
-	elif [ $myvar -eq 17 ];then
+		;;
+	17)
 		echo -e "$myvar\nbad luck from Italy"
-        else
-                echo "$myvar"
-        fi
+		;;
+        esac
         myvar=$((myvar + 1))
 done
