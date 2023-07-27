@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #go through files and search
-file='school'
 
+file='school'
 if [ ! -e "$file" ]; then
     echo "$file" file does not exist
     exit 0
