@@ -2,7 +2,7 @@
 #a while loop to display best school 10 times
 
 myvar=1
-while [ $myvar -lt 10 ]
+while [ $myvar -ge 10 ]
 do
 	echo "Best School"
 	myvar=$((myvar + 1))
