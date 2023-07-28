@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-#sigterm
-while true;do
+#use of trap
+trap "echo I am invincible!!!" SIGTERM
+while true; do
 	echo "To infinity and beyond"
 	sleep 2
 done
-trap "echo I am invincible!!!" SIGTERM
