@@ -2,4 +2,9 @@
 #kill
 prname="4-to_infinity_and_beyond"
 pid=$(pgrep "$prname")
-kill "$pid"
+
+if [ -z "$pid" ]; then
+	echo "no process"
+else
+	kill "$pid"
+fi
