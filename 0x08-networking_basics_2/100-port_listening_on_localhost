@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#netcat
+nc -l -p 98
