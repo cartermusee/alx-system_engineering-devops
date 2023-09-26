@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#Bash script that configures a new Ubuntu machine
+apt-get -y update
+apt-get -y install nginx
+ufw allow "Nginx HTTP"
+echo "Hello World!" > /var/www/html/index.html
+
+redirect_con="location /redirect_me{
+  return 301 http://carterm5.tech permanent;
+}"
+echo "$redirect_con" | tee -a /etc/nginx/sites-available/default
+service nginx start
