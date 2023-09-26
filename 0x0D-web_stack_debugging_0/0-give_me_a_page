@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#debbugging to operate apache
+echo "ServerName localhost" >> /etc/apache2.conf
+service apache2 start
