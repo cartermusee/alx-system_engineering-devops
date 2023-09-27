@@ -3,16 +3,8 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw allow "Nginx HTTP"
-echo "Hello World!" | sudo tee  /var/www/html/index.html
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html' 
 
-redirect_con="erver {
-  listen 80;
-  listen [::]80;
-  server_name _;
-
-  location /redirect_me{
-  return 301 http://carterm5.tech/ permanent;
-}"
-sudo sed -i '/server {/c\'"$redirect_con" /etc/nginx/sites-enabled/default
+sudo sed -i '/^}$/i \ \n\tlocation \/redirect_me {return 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;}' /etc/nginx/sites-available/default
 
 service nginx restart
