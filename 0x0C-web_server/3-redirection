@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
 #Bash script that configures a new Ubuntu machine
-sudo apt-get -y update
+sudo apt-get update
 sudo apt-get -y install nginx
-sudo ufw allow "Nginx HTTP"
-echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
-
-sudo sed -i '/server {/a \
-	location /redirect_me {\
-	        rewrite ^/redirect_me https://www.youtube.com watch?v=QH2-TGUlwu4 permanent;\
-	}' /etc/nginx/sites-available/default
-
-sudo service nginx restart
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
+sudo sed -i '/^}$/i \ \n\tlocation \/redirect_me {return 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;}' /etc/nginx/sites-available/default
+sudo service nginx start
