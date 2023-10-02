@@ -3,7 +3,7 @@
 sudo apt-get -y update
 sudo apt-get -y install  haproxy
 
-haproxy_config = \
+haproxy_config=\
 "
 frontend mmc_frontend
        bind * : 80:
