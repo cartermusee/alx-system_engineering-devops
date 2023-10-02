@@ -9,7 +9,9 @@ sudo echo "Holberton School" > /var/www/html/index.html
 sudo touch /var/www/html/404.html
 sudo echo "Ceci n'est pas une page" > /var/www/html/404.html
 
-printf %s "server {
+server_config=\
+"
+server {
     listen 80 default_server;
     listen [::]:80 default_server;
     add_header X-Served-By $HOSTNAME;
@@ -21,10 +23,11 @@ printf %s "server {
     }
 
     error_page 404 /404.html;
-    location /404 {
+    location = /404.html {
       root /var/www/html;
       internal;
     }
-}" > /etc/nginx/sites-available/default
+}"
+echo "$server_config" | sudo tee -a /etc/nginx/sites-available/default
 
 sudo service nginx restart
