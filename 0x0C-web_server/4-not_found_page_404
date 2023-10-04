@@ -2,10 +2,12 @@
 #Bash script that configures a 404
 sudo apt-get -y  update
 sudo apt-get -y install nginx
-sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
-sudo sh -c 'echo "<h1>Ceci n'est pas une page</h1>" > /var/www/html/404.html'
-sudo sed -i '/^}$/i \ \n\tlocation \/redirect_me {return 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;}' /etc/nginx/sites-available/default
-sudo sed -i '/^}$/i \ \n\tlocation \/ {error_page 404 /404.html;}' /etc/nginx/sites-available/default
+echo "Hello World" | sudo tee /var/www/html/index.html
+con="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;"
+sudo sed -i "s/server_name _;/$con/" /etc/nginx/sites-enabled/default
 
-sudo service nginx start
-~                        
+
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+error="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s/listen 80 default_server;/$error/" /etc/nginx/sites-enabled/default
+sudo service nginx restart
