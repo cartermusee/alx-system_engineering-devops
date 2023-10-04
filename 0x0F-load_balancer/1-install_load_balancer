@@ -3,7 +3,7 @@
 sudo apt-get -y update
 sudo apt-get -y install  haproxy
 
-haproxy_config=\
+server_config=\
 "
 frontend mmc-frontend
        bind *:80
@@ -16,6 +16,6 @@ backend mmc-backend
       server 263697-web-02 54.237.12.4:80 check
 "
 
-echo "$haproxy_config" | sudo tee -a /etc/haproxy/haproxy.cfg
+echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
-sudo service haproxy start
+sudo service haproxy restart
