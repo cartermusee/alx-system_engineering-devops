@@ -36,7 +36,6 @@ defaults
 frontend mmc-frontend
        bind *:80
        bind *:443 ssl crt /etc/haproxy/certs/www.carterm5.tech.pem
-       redirect scheme https code 301 if !{ ssl_fc }
        default_backend mmc-backend
 
 backend mmc-backend
