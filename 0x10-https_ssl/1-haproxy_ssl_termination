@@ -35,10 +35,7 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 frontend mmc-frontend
        bind *:80
-       mode http
-       default_backend mmc-backend
-frontend mmc-frontend-https
-       bind *:443 ssl crt /etc/haproxy/certs/www.cartem5.tech.pem
+       bind *:443 ssl crt /etc/haproxy/certs/www.carterm5.tech.pem
        redirect scheme https code 301 if !{ ssl_fc }
        default_backend mmc-backend
 
