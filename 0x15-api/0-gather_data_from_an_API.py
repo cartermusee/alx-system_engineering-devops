@@ -23,7 +23,7 @@ if __name__ == "__main__":
         if task.get("completed"):
             task_done.append(task)
             tasks += 1
-    print("Employee {} is done with tasks ({}/{}):".
+    print("Employee {} is done with tasks({}/{}):".
           format(emp_name, tasks, len(todo_js)))
 
     for task in task_done:
