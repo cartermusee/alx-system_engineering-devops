@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-"""module for api saving to csv"""
+"""api to json"""
 import requests
+import json
 from sys import argv
 
 
@@ -17,8 +18,11 @@ if __name__ == "__main__":
     todo_res = requests.get(todo)
     todo_js = todo_res.json()
 
-    with open("{}.csv".format(emp_id), "w") as file:
-        for task in todo_js:
-            file.write('"{}","{}","{}","{}"\n'.
-                       format(emp_id, emp_name, task.get('completed'),
-                              task.get('title')))
+    dictinary = {emp_id: []}
+    for task in todo_js:
+        dictinary[emp_id].append({"task": task.get("title"),
+                                  "completed": task.get("completed"),
+                                  "username": emp_name})
+
+    with open("{}.json".format(emp_id), "w") as file:
+        json.dump(dictinary, file)
