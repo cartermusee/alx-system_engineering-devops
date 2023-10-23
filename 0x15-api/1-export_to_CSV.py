@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     url = base_url + "/" + emp_id
     api_req = requests.get(url)
-    emp_name = api_req.json().get("name")
+    emp_name = api_req.json().get("username")
 
     todo = url + "/todos"
     todo_res = requests.get(todo)
