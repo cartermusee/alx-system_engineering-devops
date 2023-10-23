@@ -6,7 +6,7 @@ import requests
 
 if __name__ == "__main__":
 
-    base_url = 'https://jsonplaceholder.typicode.com/user'
+    base_url = 'https://jsonplaceholder.typicode.com/users'
     emp_id = argv[1]
 
     url = base_url + "/" + emp_id
