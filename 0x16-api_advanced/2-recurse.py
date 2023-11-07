@@ -3,7 +3,7 @@ import requests
 
 
 def recurse(subreddit, hot_list=[], after="", count=0):
-    """function 
+    """function
     args:
         subreddit:subreddit
         hot_list:list
